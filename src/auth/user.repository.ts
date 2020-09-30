@@ -20,8 +20,6 @@ export class UserRepository extends Repository<User> {
     try {
       await user.save();
     } catch (error) {
-      // tslint:disable-next-line: no-console
-      console.log(error);
       // duplicate username
       if (error.code === '23505') {
         throw new ConflictException('Username already exists');
