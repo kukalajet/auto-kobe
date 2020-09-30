@@ -5,4 +5,8 @@ db:
   host: 'ec2-54-146-91-153.compute-1.amazonaws.com'
   username: 'dcohhousdlkzgh'
   password: 'a1439f97e212292b5d629e5cd6c7dec383581120186184bc7074da7d4627367f'
+  database: 'ddi3jq6faa00ct'
   synchronize: false
+
+jwt:
+  secret: 'topSecret51'
