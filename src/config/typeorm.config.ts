@@ -3,6 +3,9 @@ import * as config from 'config';
 
 const dbConfig = config.get('db');
 
+// tslint:disable-next-line: no-console
+console.log(dbConfig);
+
 export const typeOrmConfig: TypeOrmModuleOptions = {
   type: dbConfig.type,
   host: process.env.RDS_HOSTNAME || dbConfig.host,
