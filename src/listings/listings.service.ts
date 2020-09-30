@@ -1,7 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { stat } from 'fs';
-import { User } from 'src/auth/user.entity';
+import { User } from '../auth/user.entity';
 import { CreateListingDto } from './dto/create-listing.dto';
 import { GetListingsFilterDto } from './dto/get-listings-filter.dto';
 import { ListingStatus } from './listing-status.enum';

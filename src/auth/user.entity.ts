@@ -7,7 +7,7 @@ import {
   Unique,
 } from 'typeorm';
 import * as bcrypt from 'bcryptjs';
-import { Listing } from 'src/listings/listing.entity';
+import { Listing } from '../listings/listing.entity';
 
 @Entity()
 @Unique(['username'])
