@@ -6,7 +6,7 @@ db:
   username: 'dcohhousdlkzgh'
   password: 'a1439f97e212292b5d629e5cd6c7dec383581120186184bc7074da7d4627367f'
   database: 'ddi3jq6faa00ct'
-  synchronize: false
+  synchronize: true
 
 jwt:
   secret: 'topSecret51'
