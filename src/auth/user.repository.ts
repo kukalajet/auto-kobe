@@ -9,6 +9,8 @@ import {
 
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {
+  private logger = new Logger('AuthService');
+
   async signUp(authCredentialsDto: AuthCredentialsDto): Promise<void> {
     const { username, password } = authCredentialsDto;
 
@@ -17,10 +19,14 @@ export class UserRepository extends Repository<User> {
     user.salt = await bcrypt.genSalt();
     user.password = await this.hashPassword(password, user.salt);
 
+    this.logger.verbose('Before trying to save');
+
     try {
+      this.logger.verbose('Trying to save');
       await user.save();
     } catch (error) {
       // duplicate username
+      this.logger.verbose(`Error: ${error}`);
       if (error.code === '23505') {
         throw new ConflictException('Username already exists');
       } else {
