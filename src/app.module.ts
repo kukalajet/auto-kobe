@@ -7,10 +7,4 @@ import { ListingsModule } from './listings/listings.module';
 @Module({
   imports: [TypeOrmModule.forRoot(typeOrmConfig), AuthModule, ListingsModule],
 })
-export class AppModule {
-  private logger = new Logger('AuthService');
-
-  constructor() {
-    this.logger.log(typeOrmConfig);
-  }
-}
+export class AppModule {}

@@ -40,10 +40,10 @@ export class ListingsService {
     return this.listingRepository.createListing(createListingDto, user);
   }
 
-  async deleteTask(id: number, user: User): Promise<void> {
+  async deleteListing(id: number, user: User): Promise<void> {
     const result = await this.listingRepository.delete({ id, userId: user.id });
     if (result.affected === 0) {
-      throw new NotFoundException(`Task with ID "${id}" not found`);
+      throw new NotFoundException(`Listing with ID "${id}" not found`);
     }
   }
 
