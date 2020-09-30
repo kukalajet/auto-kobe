@@ -5,6 +5,7 @@ import * as bcrypt from 'bcryptjs';
 import {
   ConflictException,
   InternalServerErrorException,
+  Logger,
 } from '@nestjs/common';
 
 @EntityRepository(User)
