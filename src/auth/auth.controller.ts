@@ -10,6 +10,8 @@ export class AuthController {
   signUp(
     @Body(ValidationPipe) authCrededentialsDto: AuthCredentialsDto,
   ): Promise<void> {
+    // tslint:disable-next-line: no-console
+    console.log(authCrededentialsDto);
     return this.authService.signUp(authCrededentialsDto);
   }
 
