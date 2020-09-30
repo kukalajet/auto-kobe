@@ -1,7 +1,11 @@
 db:
-  host: 'localhost'
-  username: 'postgres'
-  password: 'postgres'
+  # host: 'localhost'
+  # host: 'postgres://dcohhousdlkzgh:a1439f97e212292b5d629e5cd6c7dec383581120186184bc7074da7d4627367f@ec2-54-146-91-153.compute-1.amazonaws.com:5432/ddi3jq6faa00ct'
+  host: 'ec2-54-146-91-153.compute-1.amazonaws.com'
+  # username: 'postgres'
+  username: 'dcohhousdlkzgh'
+  # password: 'postgres'
+  password: 'a1439f97e212292b5d629e5cd6c7dec383581120186184bc7074da7d4627367f'
   synchronize: true
 
 jwt:
