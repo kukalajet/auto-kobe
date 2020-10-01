@@ -14,8 +14,8 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { GetUser } from '../auth/get-user.decorator';
-import { User } from '../auth/user.entity';
+import { GetUser } from '../users/get-user.decorator';
+import { User } from '../users/user.entity';
 import { CreateListingDto } from './dto/create-listing.dto';
 import { GetListingsFilterDto } from './dto/get-listings-filter.dto';
 import { ListingStatus } from './listing-status.enum';

@@ -1,5 +1,5 @@
 import { InternalServerErrorException, Logger } from '@nestjs/common';
-import { User } from '../auth/user.entity';
+import { User } from '../users/user.entity';
 import { EntityRepository, Repository } from 'typeorm';
 import { CreateListingDto } from './dto/create-listing.dto';
 import { GetListingsFilterDto } from './dto/get-listings-filter.dto';

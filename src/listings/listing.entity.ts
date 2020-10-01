@@ -1,4 +1,4 @@
-import { User } from '../auth/user.entity';
+import { User } from '../users/user.entity';
 import {
   BaseEntity,
   Column,
