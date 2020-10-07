@@ -36,9 +36,9 @@ export class ListingsController {
     @GetUser() user: User,
   ): Promise<Listing[]> {
     this.logger.verbose(
-      `User "${
-        user.username
-      }" retrieving all listings. Filters: ${JSON.stringify(filterDto)}`,
+      `User "${user.id}" retrieving all listings. Filters: ${JSON.stringify(
+        filterDto,
+      )}`,
     );
     return this.listingsService.getListings(filterDto, user);
   }
