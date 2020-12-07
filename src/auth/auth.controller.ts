@@ -1,6 +1,6 @@
 import { Body, Controller, Post, ValidationPipe } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { AuthCredentialsDto } from './dto/auth-credentials.dto';
+import { AuthCredentialsDto, GoogleAuthCredentialsDto } from './dto';
 
 @Controller('auth')
 export class AuthController {
@@ -18,5 +18,12 @@ export class AuthController {
     @Body(ValidationPipe) authCredentialsDto: AuthCredentialsDto,
   ): Promise<{ accessToken: string }> {
     return this.authService.signIn(authCredentialsDto);
+  }
+
+  @Post('/signinwithgoogle')
+  signInWithGoogle(
+    @Body(ValidationPipe) googleAuthCredentialsDto: GoogleAuthCredentialsDto,
+  ): Promise<{ accessToken: string }> {
+    return this.authService.signInWithGoogle(googleAuthCredentialsDto);
   }
 }

@@ -1,9 +1,9 @@
 import { Injectable, Logger, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
-import { AuthCredentialsDto } from './dto/auth-credentials.dto';
 import { JwtPayload } from './jwt-payload.interface';
 import { UserRepository } from '../users/user.repository';
+import { AuthCredentialsDto, GoogleAuthCredentialsDto } from './dto';
 
 @Injectable()
 export class AuthService {
@@ -22,18 +22,32 @@ export class AuthService {
   async signIn(
     authCredentialsDto: AuthCredentialsDto,
   ): Promise<{ accessToken: string }> {
-    const username = await this.userRepository.validatePassword(
-      authCredentialsDto,
-    );
+    const id = await this.userRepository.validatePassword(authCredentialsDto);
 
-    if (!username) {
+    if (!id) {
       throw new UnauthorizedException('Invalid credentials');
     }
 
-    const payload: JwtPayload = { username };
+    const payload: JwtPayload = { id };
     const accessToken = await this.jwtService.sign(payload);
     this.logger.debug(
       `Generated JWT Token with payload ${JSON.stringify(payload)}`,
+    );
+
+    return { accessToken };
+  }
+
+  async signInWithGoogle(
+    googleAuthCredentialsDto: GoogleAuthCredentialsDto,
+  ): Promise<{ accessToken: string }> {
+    const id = await this.userRepository.validateGoogleIdToken(
+      googleAuthCredentialsDto,
+    );
+
+    const payload: JwtPayload = { id };
+    const accessToken = await this.jwtService.sign(payload);
+    this.logger.debug(
+      `Generated JWT Token for payload ${JSON.stringify(payload)}`,
     );
 
     return { accessToken };

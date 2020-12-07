@@ -10,18 +10,28 @@ import * as bcrypt from 'bcryptjs';
 import { Listing } from '../listings/listing.entity';
 
 @Entity()
-@Unique(['username'])
+// @Unique(['email', 'googleIdToken'])
+@Unique(['email'])
 export class User extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  username: string;
+  email: string;
 
-  @Column()
+  @Column({ nullable: true })
+  googleIdToken: string;
+
+  @Column({ nullable: true })
+  name: string;
+
+  @Column({ nullable: true })
+  photoUrl: string;
+
+  @Column({ nullable: true })
   password: string;
 
-  @Column()
+  @Column({ nullable: true })
   salt: string;
 
   @OneToMany(
