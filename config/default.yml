@@ -4,3 +4,6 @@ db:
 
 jwt:
   expiresIn: 3600
+
+auth:
+  google_client_id: '104417906133543098950'

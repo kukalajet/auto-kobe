@@ -5,6 +5,9 @@ export class GoogleAuthCredentialsDto {
   idToken: string;
 
   @IsString()
+  googleId: string;
+
+  @IsString()
   name: string;
 
   @IsString()

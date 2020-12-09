@@ -5,7 +5,10 @@ import * as bcrypt from 'bcryptjs';
 import {
   ConflictException,
   InternalServerErrorException,
+  UnauthorizedException,
 } from '@nestjs/common';
+import * as config from 'config';
+import { OAuth2Client } from 'google-auth-library';
 
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {
@@ -14,7 +17,6 @@ export class UserRepository extends Repository<User> {
 
     const user = new User();
     user.email = email;
-    user.googleIdToken = null;
     user.salt = await bcrypt.genSalt();
     user.password = await this.hashPassword(password, user.salt);
 
@@ -46,20 +48,28 @@ export class UserRepository extends Repository<User> {
   async validateGoogleIdToken(
     googleAuthCredentialsDto: GoogleAuthCredentialsDto,
   ): Promise<number> {
-    const { idToken, name, email, photoUrl } = googleAuthCredentialsDto;
-    let user = await this.findOne({ email });
+    const {
+      idToken,
+      googleId,
+      name,
+      email,
+      photoUrl,
+    } = googleAuthCredentialsDto;
 
+    const verifiedId = await this.validateIdToken(idToken);
+    if (!verifiedId && verifiedId !== googleId) {
+      throw new UnauthorizedException('Could not verify Google token');
+    }
+
+    let user = await this.findOne({ email });
     if (user) {
-      if (user.googleIdToken === idToken) {
-        return user.id;
-      }
-      throw new ConflictException('Given credentials are wrong');
+      return user.id;
     }
 
     const newUser = new User();
     newUser.email = email;
     newUser.name = name;
-    newUser.googleIdToken = idToken;
+    newUser.googleId = googleId;
     newUser.photoUrl = photoUrl;
 
     try {
@@ -75,6 +85,18 @@ export class UserRepository extends Repository<User> {
 
     user = await this.findOne({ email });
     return user.id;
+  }
+
+  async validateIdToken(idToken: string): Promise<string> {
+    const googleClientId = config.get('auth').google_client_id;
+    const client = new OAuth2Client(googleClientId);
+    const ticket = await client.verifyIdToken({
+      idToken,
+    });
+    const payload = ticket.getPayload();
+    const userId = payload.sub;
+
+    return userId;
   }
 
   private async hashPassword(password: string, salt: string): Promise<string> {

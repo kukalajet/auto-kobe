@@ -10,8 +10,7 @@ import * as bcrypt from 'bcryptjs';
 import { Listing } from '../listings/listing.entity';
 
 @Entity()
-// @Unique(['email', 'googleIdToken'])
-@Unique(['email'])
+@Unique(['email', 'googleId'])
 export class User extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
@@ -20,7 +19,7 @@ export class User extends BaseEntity {
   email: string;
 
   @Column({ nullable: true })
-  googleIdToken: string;
+  googleId: string;
 
   @Column({ nullable: true })
   name: string;
