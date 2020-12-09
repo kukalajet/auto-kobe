@@ -6,6 +6,8 @@ import { ListingsModule } from './listings/listings.module';
 import { UsersModule } from './users/users.module';
 import { BrandsModule } from './brands/brands.module';
 
+console.log(`TYPE_ORM_CONFIG: ${typeOrmConfig}`);
+
 @Module({
   imports: [
     TypeOrmModule.forRoot(typeOrmConfig),
