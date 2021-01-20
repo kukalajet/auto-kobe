@@ -1,5 +1,9 @@
 import { EntityRepository, Repository } from 'typeorm';
-import { GoogleAuthCredentialsDto, AuthCredentialsDto } from '../auth/dto';
+import {
+  GoogleAuthCredentialsDto,
+  AuthCredentialsDto,
+  RegisterCredentialsDto,
+} from '../auth/dto';
 import { User } from './user.entity';
 import * as bcrypt from 'bcryptjs';
 import {
@@ -12,11 +16,13 @@ import { OAuth2Client } from 'google-auth-library';
 
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {
-  async signUp(authCredentialsDto: AuthCredentialsDto): Promise<void> {
-    const { email, password } = authCredentialsDto;
+  async signUp(registerCredentialsDto: RegisterCredentialsDto): Promise<void> {
+    const { firstName, lastName, email, password } = registerCredentialsDto;
 
     const user = new User();
     user.email = email;
+    user.firstName = firstName;
+    user.lastName = lastName;
     user.salt = await bcrypt.genSalt();
     user.password = await this.hashPassword(password, user.salt);
 
@@ -36,7 +42,9 @@ export class UserRepository extends Repository<User> {
     authCredentialsDto: AuthCredentialsDto,
   ): Promise<number> {
     const { email, password } = authCredentialsDto;
+    console.log(`authCredentialsDto: ${JSON.stringify(authCredentialsDto)}`);
     const user = await this.findOne({ email });
+    console.log(`user: ${JSON.stringify(user)}`);
 
     if (user && (await user.validatePassword(password))) {
       return user.id;
@@ -68,7 +76,7 @@ export class UserRepository extends Repository<User> {
 
     const newUser = new User();
     newUser.email = email;
-    newUser.name = name;
+    newUser.firstName = name;
     newUser.googleId = googleId;
     newUser.photoUrl = photoUrl;
 
