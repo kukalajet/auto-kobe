@@ -42,9 +42,7 @@ export class UserRepository extends Repository<User> {
     authCredentialsDto: AuthCredentialsDto,
   ): Promise<number> {
     const { email, password } = authCredentialsDto;
-    console.log(`authCredentialsDto: ${JSON.stringify(authCredentialsDto)}`);
     const user = await this.findOne({ email });
-    console.log(`user: ${JSON.stringify(user)}`);
 
     if (user && (await user.validatePassword(password))) {
       return user.id;

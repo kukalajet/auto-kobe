@@ -18,6 +18,16 @@ export class UsersController {
 
   constructor(private usersService: UsersService) {}
 
+  @Get('/self')
+  getSelf(@GetUser() user: User): User {
+    delete user.googleId;
+    delete user.password;
+    delete user.salt;
+    delete user.listings;
+
+    return user;
+  }
+
   @Get('/:id')
   getUserById(
     @Param('id', ParseIntPipe) id: number,
