@@ -15,7 +15,7 @@ export class User extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ unique: true })
   email: string;
 
   @Column({ nullable: true })
@@ -44,8 +44,6 @@ export class User extends BaseEntity {
   listings: Listing[];
 
   async validatePassword(password: string): Promise<boolean> {
-    console.log(`password: ${password}`);
-    console.log(`salt: ${this.salt}`);
     const hash = await bcrypt.hash(password, this.salt);
     return hash === this.password;
   }
