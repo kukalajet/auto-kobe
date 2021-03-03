@@ -1,17 +1,17 @@
-import { Brand } from '../src/brands/brand.entity';
-import { Model } from '../src/brands/model.entity';
-import { Transmission } from '../src/listings/entities/transmission.entity';
-import { Valute } from '../src/listings/entities/valute.entity';
-import { VehicleCondition } from '../src/listings/entities/vehicle-condition.entity';
-import { VehicleConditionType } from '../src/listings/enums/vehicle-condition.enum';
-import { Transmission as TransmissionType } from '../src/listings/enums/transmission.enum';
-import { Country } from '../src/listings/entities/country.entity';
-import { DoorType } from '../src/listings/entities/doors.entity';
-import { DoorsType } from '../src/listings/enums/doors-type.enum';
-import { FuelType as Fuel } from '../src/listings/entities/fuel-type.entity';
-import { FuelType } from '../src/listings/enums/fuel-type.enum';
-import { EmissionClass } from '../src/listings/entities/emission-class.entity';
-import { EmissionClass as EmissionClassType } from '../src/listings/enums/emission-class.enum';
+import { Brand } from '../brands/brand.entity';
+import { Model } from '../brands/model.entity';
+import { Transmission } from '../listings/entities/transmission.entity';
+import { Valute } from '../listings/entities/valute.entity';
+import { VehicleCondition } from '../listings/entities/vehicle-condition.entity';
+import { VehicleConditionType } from '../listings/enums/vehicle-condition.enum';
+import { Transmission as TransmissionType } from '../listings/enums/transmission.enum';
+import { Country } from '../listings/entities/country.entity';
+import { DoorType } from '../listings/entities/doors.entity';
+import { DoorsType } from '../listings/enums/doors-type.enum';
+import { FuelType as Fuel } from '../listings/entities/fuel-type.entity';
+import { FuelType } from '../listings/enums/fuel-type.enum';
+import { EmissionClass } from '../listings/entities/emission-class.entity';
+import { EmissionClass as EmissionClassType } from '../listings/enums/emission-class.enum';
 
 // default data
 import {
