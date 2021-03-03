@@ -23,6 +23,6 @@ async function bootstrap() {
   logger.log(`Application listing on port ${port}`);
 
   // testing
-  populate();
+  // populate();
 }
 bootstrap();
