@@ -119,7 +119,7 @@ export const fuelTypes: Fuel[] = [
     type: 'Hybrid',
   },
   {
-    type: 'Bi-Fuel',
+    type: 'BiFuel',
   },
 ];
 

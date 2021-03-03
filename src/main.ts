@@ -18,11 +18,10 @@ async function bootstrap() {
   }
 
   const port = process.env.PORT || serverConfig.port;
-  console.log(port);
   await app.listen(port);
   logger.log(`Application listing on port ${port}`);
 
   // testing
-  // populate();
+  populate();
 }
 bootstrap();
