@@ -7,7 +7,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Listing } from 'src/listings/listing.entity';
+import { Listing } from '../listings/listing.entity';
 
 @Entity()
 export class Model extends BaseEntity {

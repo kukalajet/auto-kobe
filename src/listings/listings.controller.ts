@@ -14,7 +14,6 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { Brand } from 'src/brands/brand.entity';
 import { GetUser } from '../users/get-user.decorator';
 import { User } from '../users/user.entity';
 import { CreateListingDto } from './dto/create-listing.dto';

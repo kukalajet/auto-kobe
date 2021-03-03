@@ -1,8 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Brand } from 'src/brands/brand.entity';
-import { BrandRepository } from 'src/brands/brand.repository';
-import { GetBrandsFilterDto } from 'src/brands/dto/get-brands-filter.dto';
 import { User } from '../users/user.entity';
 import { DoorTypeRepository } from './repositories/door-type.repository';
 import { CreateListingDto } from './dto/create-listing.dto';

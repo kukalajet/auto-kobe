@@ -12,7 +12,7 @@ import { FuelType } from './entities/fuel-type.entity';
 import { DoorType } from './entities/doors.entity';
 import { Transmission } from './entities/transmission.entity';
 import { VehicleCondition } from './entities/vehicle-condition.entity';
-import { Model } from 'src/brands/model.entity';
+import { Model } from '../brands/model.entity';
 import { Country } from './entities/country.entity';
 import { Valute } from './entities/valute.entity';
 
