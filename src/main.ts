@@ -3,7 +3,8 @@ import { AppModule } from './app.module';
 import * as config from 'config';
 import { Logger } from '@nestjs/common';
 
-// DEMO HEROKU
+import { populate } from '../setup/populate-database';
+
 async function bootstrap() {
   const serverConfig = config.get('server');
   const logger = new Logger('bootstrap');
@@ -19,5 +20,8 @@ async function bootstrap() {
   const port = process.env.PORT || serverConfig.port;
   await app.listen(port);
   logger.log(`Application listing on port ${port}`);
+
+  // testing
+  populate();
 }
 bootstrap();

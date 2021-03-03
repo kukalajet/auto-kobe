@@ -4,8 +4,10 @@ import {
   Column,
   Entity,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { Listing } from 'src/listings/listing.entity';
 
 @Entity()
 export class Model extends BaseEntity {
@@ -21,4 +23,11 @@ export class Model extends BaseEntity {
     { eager: false },
   )
   brand: Brand;
+
+  @OneToMany(
+    type => Listing,
+    listing => listing.model,
+    { eager: true },
+  )
+  listings: Listing[];
 }

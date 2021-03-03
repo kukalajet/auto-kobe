@@ -41,17 +41,18 @@ export class BrandsService {
     }
   }
 
-  async getModels(idModel: number): Promise<Model[]> {
+  async getModels(idBrand: number): Promise<Model[]> {
     const found = await this.brandRepository.findOne({
-      where: { id: idModel },
+      where: { id: idBrand },
     });
 
     if (!found) {
       throw new NotFoundException(
-        `Brand with id "${idModel}" not found. Cannot get models for this brand.`,
+        `Brand with id "${idBrand}" not found. Cannot get models for this brand.`,
       );
     }
 
+    found.models.forEach(model => delete model.listings);
     return found.models;
   }
 
@@ -72,6 +73,7 @@ export class BrandsService {
       );
     }
 
+    delete model.listings;
     return model;
   }
 

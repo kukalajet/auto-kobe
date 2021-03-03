@@ -78,15 +78,10 @@ export class BrandsController {
   @Get('/:id/models')
   getModels(
     @Param('id', ParseIntPipe) id: number,
-    @Query(ValidationPipe) filterDto: GetModelsFilterDto,
     @GetUser() user: User,
   ): Promise<Model[]> {
     this.logger.verbose(
-      `User "${
-        user.id
-      }" retrieving all models for brand "${id}". Filters: ${JSON.stringify(
-        filterDto,
-      )}`,
+      `User "${user.id}" retrieving all models for brand "${id}"`,
     );
     return this.brandsService.getModels(id);
   }
