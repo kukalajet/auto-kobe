@@ -7,7 +7,7 @@ import { populate } from './setup/populate-database';
 
 async function bootstrap() {
   const serverConfig = config.get('server');
-  console.log(`serverConfig: ${serverConfig}`);
+  console.log(`serverConfig: ${JSON.stringify(serverConfig)}`);
 
   const logger = new Logger('bootstrap');
   const app = await NestFactory.create(AppModule);
