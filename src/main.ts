@@ -21,6 +21,7 @@ async function bootstrap() {
 
   const port = process.env.PORT || serverConfig.port;
   console.log(`port: ${port}`);
+  console.log(`process.env.PORT: ${process.env.PORT}`);
 
   await app.listen(port);
   logger.log(`Application listing on port ${port}`);
