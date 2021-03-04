@@ -7,6 +7,8 @@ import { populate } from './setup/populate-database';
 
 async function bootstrap() {
   const serverConfig = config.get('server');
+  console.log(`serverConfig: ${serverConfig}`);
+
   const logger = new Logger('bootstrap');
   const app = await NestFactory.create(AppModule);
 
@@ -18,6 +20,8 @@ async function bootstrap() {
   }
 
   const port = process.env.PORT || serverConfig.port;
+  console.log(`port: ${port}`);
+
   await app.listen(port);
   logger.log(`Application listing on port ${port}`);
 
