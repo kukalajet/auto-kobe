@@ -15,4 +15,8 @@ import { BrandsModule } from './brands/brands.module';
     BrandsModule,
   ],
 })
-export class AppModule {}
+export class AppModule {
+  constructor() {
+    console.log('In AppModule');
+  }
+}
