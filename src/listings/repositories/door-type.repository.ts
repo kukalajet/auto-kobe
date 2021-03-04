@@ -1,7 +1,7 @@
 import { InternalServerErrorException, Logger } from '@nestjs/common';
 import { EntityRepository, Repository } from 'typeorm';
 import { GetDoorTypesFilterDto } from '../dto/get-door-types-filter-dto';
-import { DoorType } from '../entities/doors.entity';
+import { DoorType } from '../doors.entity';
 
 @EntityRepository(DoorType)
 export class DoorTypeRepository extends Repository<DoorType> {

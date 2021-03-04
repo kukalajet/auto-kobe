@@ -3,7 +3,7 @@ import { AppModule } from './app.module';
 import * as config from 'config';
 import { Logger } from '@nestjs/common';
 
-import { populate } from './setup/populate-database';
+import { populate } from './listings/setup/populate-database';
 
 async function bootstrap() {
   const serverConfig = config.get('server');

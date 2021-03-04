@@ -7,13 +7,13 @@ import { ListingStatus } from '../listing-status.enum';
 import { Listing } from '../listing.entity';
 import { Brand } from '../../brands/brand.entity';
 import { Model } from '../../brands/model.entity';
-import { EmissionClass } from '../entities/emission-class.entity';
-import { VehicleCondition } from '../entities/vehicle-condition.entity';
-import { Valute } from '../entities/valute.entity';
-import { Transmission } from '../entities/transmission.entity';
-import { Country } from '../entities/country.entity';
-import { DoorType } from '../entities/doors.entity';
-import { FuelType } from '../entities/fuel-type.entity';
+import { EmissionClass } from '../emission-class.entity';
+import { VehicleCondition } from '../vehicle-condition.entity';
+import { Valute } from '../valute.entity';
+import { Transmission } from '../transmission.entity';
+import { Country } from '../country.entity';
+import { DoorType } from '../doors.entity';
+import { FuelType } from '../fuel-type.entity';
 
 @EntityRepository(Listing)
 export class ListingRepository extends Repository<Listing> {

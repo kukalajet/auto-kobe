@@ -5,20 +5,20 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { FuelType as Type } from '../enums/fuel-type.enum';
-import { Listing } from '../listing.entity';
+import { EmissionClass as Type } from './enums/emission-class.enum';
+import { Listing } from './listing.entity';
 
 @Entity()
-export class FuelType extends BaseEntity {
+export class EmissionClass extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column('text')
-  type: Type;
+  standard: Type;
 
   @OneToMany(
     type => Listing,
-    listing => listing.fuel,
+    listing => listing.emissionClass,
     { eager: true },
   )
   listings: Listing[];

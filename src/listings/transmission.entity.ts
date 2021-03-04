@@ -5,8 +5,8 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Transmission as Type } from '../enums/transmission.enum';
-import { Listing } from '../listing.entity';
+import { Transmission as Type } from './enums/transmission.enum';
+import { Listing } from './listing.entity';
 
 @Entity()
 export class Transmission extends BaseEntity {

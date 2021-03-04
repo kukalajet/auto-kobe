@@ -1,17 +1,17 @@
-import { Brand } from '../brands/brand.entity';
-import { Model } from '../brands/model.entity';
-import { Transmission } from '../listings/entities/transmission.entity';
-import { Valute } from '../listings/entities/valute.entity';
-import { VehicleCondition } from '../listings/entities/vehicle-condition.entity';
-import { VehicleConditionType } from '../listings/enums/vehicle-condition.enum';
-import { Transmission as TransmissionType } from '../listings/enums/transmission.enum';
-import { Country } from '../listings/entities/country.entity';
-import { DoorType } from '../listings/entities/doors.entity';
-import { DoorsType } from '../listings/enums/doors-type.enum';
-import { FuelType as Fuel } from '../listings/entities/fuel-type.entity';
-import { FuelType } from '../listings/enums/fuel-type.enum';
-import { EmissionClass } from '../listings/entities/emission-class.entity';
-import { EmissionClass as EmissionClassType } from '../listings/enums/emission-class.enum';
+import { Brand } from '../../brands/brand.entity';
+import { Model } from '../../brands/model.entity';
+import { Transmission } from '../transmission.entity';
+import { Valute } from '../valute.entity';
+import { VehicleCondition } from '../vehicle-condition.entity';
+import { VehicleConditionType } from '../enums/vehicle-condition.enum';
+import { Transmission as TransmissionType } from '../enums/transmission.enum';
+import { Country } from '../country.entity';
+import { DoorType } from '../doors.entity';
+import { DoorsType } from '../enums/doors-type.enum';
+import { FuelType as Fuel } from '../fuel-type.entity';
+import { FuelType } from '../enums/fuel-type.enum';
+import { EmissionClass } from '../emission-class.entity';
+import { EmissionClass as EmissionClassType } from '../enums/emission-class.enum';
 
 // default data
 import {

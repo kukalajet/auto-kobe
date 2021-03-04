@@ -1,7 +1,7 @@
 import { InternalServerErrorException, Logger } from '@nestjs/common';
 import { EntityRepository, Repository } from 'typeorm';
 import { GetEmissionClassesFilterDto } from '../dto/get-emission-classes-filter-dto';
-import { EmissionClass } from '../entities/emission-class.entity';
+import { EmissionClass } from '../emission-class.entity';
 
 @EntityRepository(EmissionClass)
 export class EmissionClassRepository extends Repository<EmissionClass> {

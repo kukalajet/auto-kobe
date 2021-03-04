@@ -7,14 +7,14 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { ListingStatus } from './listing-status.enum';
-import { EmissionClass } from './entities/emission-class.entity';
-import { FuelType } from './entities/fuel-type.entity';
-import { DoorType } from './entities/doors.entity';
-import { Transmission } from './entities/transmission.entity';
-import { VehicleCondition } from './entities/vehicle-condition.entity';
+import { EmissionClass } from './emission-class.entity';
+import { FuelType } from './fuel-type.entity';
+import { DoorType } from './doors.entity';
+import { Transmission } from './transmission.entity';
+import { VehicleCondition } from './vehicle-condition.entity';
 import { Model } from '../brands/model.entity';
-import { Country } from './entities/country.entity';
-import { Valute } from './entities/valute.entity';
+import { Country } from './country.entity';
+import { Valute } from './valute.entity';
 
 @Entity()
 export class Listing extends BaseEntity {

@@ -5,8 +5,8 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { VehicleConditionType as Type } from '../enums/vehicle-condition.enum';
-import { Listing } from '../listing.entity';
+import { VehicleConditionType as Type } from './enums/vehicle-condition.enum';
+import { Listing } from './listing.entity';
 
 @Entity()
 export class VehicleCondition extends BaseEntity {

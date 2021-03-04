@@ -1,7 +1,7 @@
 import { InternalServerErrorException, Logger } from '@nestjs/common';
 import { EntityRepository, Repository } from 'typeorm';
 import { GetFuelTypeFilterDto } from '../dto/get-fuel-types-filter.dto';
-import { FuelType } from '../entities/fuel-type.entity';
+import { FuelType } from '../fuel-type.entity';
 
 @EntityRepository(FuelType)
 export class FuelTypeRepository extends Repository<FuelType> {

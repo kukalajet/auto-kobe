@@ -1,7 +1,7 @@
 import { InternalServerErrorException, Logger } from '@nestjs/common';
 import { EntityRepository, Repository } from 'typeorm';
 import { GetTransmissionFilterDto } from '../dto/get-transmissions-filter.dto';
-import { Transmission } from '../entities/transmission.entity';
+import { Transmission } from '../transmission.entity';
 
 @EntityRepository(Transmission)
 export class TransmissionRepository extends Repository<Transmission> {

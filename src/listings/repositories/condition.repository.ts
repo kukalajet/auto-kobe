@@ -1,7 +1,7 @@
 import { InternalServerErrorException, Logger } from '@nestjs/common';
 import { EntityRepository, Repository } from 'typeorm';
 import { GetConditionFilterDto } from '../dto/get-condition-filter.dto';
-import { VehicleCondition } from '../entities/vehicle-condition.entity';
+import { VehicleCondition } from '../vehicle-condition.entity';
 
 @EntityRepository(VehicleCondition)
 export class ConditionRepository extends Repository<VehicleCondition> {

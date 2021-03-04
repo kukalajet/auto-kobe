@@ -7,7 +7,7 @@ import {
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Listing } from '../listing.entity';
+import { Listing } from './listing.entity';
 import { Valute } from './valute.entity';
 
 @Entity()

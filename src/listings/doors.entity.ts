@@ -5,22 +5,20 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Listing } from '../listing.entity';
+import { DoorsType as Type } from './enums/doors-type.enum';
+import { Listing } from './listing.entity';
 
 @Entity()
-export class Valute extends BaseEntity {
+export class DoorType extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
-  name: string;
-
-  @Column()
-  symbol: string;
+  @Column('text')
+  number: Type;
 
   @OneToMany(
     type => Listing,
-    listing => listing.valute,
+    listing => listing.doors,
     { eager: true },
   )
   listings: Listing[];

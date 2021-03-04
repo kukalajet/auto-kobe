@@ -2,8 +2,8 @@ import { InternalServerErrorException, Logger } from '@nestjs/common';
 import { EntityRepository, Repository } from 'typeorm';
 import { GetTransmissionFilterDto } from '../dto/get-transmissions-filter.dto';
 import { GetValuteFilterDto } from '../dto/get-valute-filter.dto';
-import { Transmission } from '../entities/transmission.entity';
-import { Valute } from '../entities/valute.entity';
+import { Transmission } from '../transmission.entity';
+import { Valute } from '../valute.entity';
 
 @EntityRepository(Valute)
 export class ValuteRepository extends Repository<Valute> {
